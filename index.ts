@@ -18,7 +18,7 @@ app.post('/accomplice/discord', (req: Request, res: Response) => {
 	
 	const message = `
 	**A thing has happened!** :confetti_ball:\n 
-	There was a \`${req.body.meta.type}\` on the entity \`${req.body.entity.id}\`!
+	There was a \`${req.body.data.meta.type}\` on the entity \`${req.body.data.entity.id}\`!
 	Have a great day :relaxed:
 	`
 
