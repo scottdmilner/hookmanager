@@ -36,7 +36,10 @@ Have a great day :relaxed:`
 			content: message,
 		}),
 	})
-	.then(() => res.sendStatus(200));
+	.then((fetchResponse) => {
+		if (fetchResponse.ok) res.sendStatus(200);
+		else                  res.sendStatus(500);
+	});
 });
 
 app.listen(port, () => {
