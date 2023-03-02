@@ -19,7 +19,8 @@ app.post('/accomplice/discord', (req: Request, res: Response) => {
 
 	if (!verifyMessage(req, process.env.SECRET_TOKEN as string)) {
 		console.log('Bad request!');
-		res.sendStatus(401).send('Bad Credentials');
+		res.sendStatus(401);
+		return;
 	}
 	
 	const message = `
