@@ -35,7 +35,7 @@ Have a great day :relaxed:`
 
 
 app.get('/img/shotgriscord.png', (req: Request, res: Response) => {
-	res.sendFile(__dirname + 'img/shotgriscord.png');
+	res.sendFile(__dirname + '/img/shotgriscord.png');
 });
 
 app.listen(port, () => {
