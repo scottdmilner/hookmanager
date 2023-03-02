@@ -12,7 +12,7 @@ node_modules
 .map
 
 # compiled
-dist
+dist/*.js
 
 # macOS
 .DS_Store
