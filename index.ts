@@ -13,7 +13,7 @@ app.get('/accomplice/discord', async (req: Request, res: Response) => {
 	res.sendStatus(200);
 });
 
-app.post('/accomplice/discord', async (req: Request, res: Response) => {
+app.post('/accomplice/discord', (req: Request, res: Response) => {
 	console.log(req.body);
 	
 	const message = `
@@ -22,7 +22,7 @@ app.post('/accomplice/discord', async (req: Request, res: Response) => {
 	Have a great day :relaxed:
 	`
 
-	await fetch(process.env.DISCORD_HOOK_URL as string, {
+	fetch(process.env.DISCORD_HOOK_URL as string, {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
 		body: JSON.stringify({
@@ -31,7 +31,7 @@ app.post('/accomplice/discord', async (req: Request, res: Response) => {
 			avatar_url: 'http://animhooks.cs.byu.edu/img/shotgriscord.png',
 		}),
 	})
-	res.sendStatus(200);
+	.then(() => res.sendStatus(200));
 });
 
 
