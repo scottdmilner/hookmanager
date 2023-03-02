@@ -27,15 +27,9 @@ Have a great day :relaxed:`
 		body: JSON.stringify({
 			username: 'ShBotGrid',
 			content: message,
-			avatar_url: 'http://animhooks.cs.byu.edu/img/shotgriscord.png',
 		}),
 	})
 	.then(() => res.sendStatus(200));
-});
-
-
-app.get('/img/shotgriscord.png', (req: Request, res: Response) => {
-	res.sendFile(__dirname + '/img/shotgriscord.png');
 });
 
 app.listen(port, () => {
