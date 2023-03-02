@@ -14,6 +14,8 @@ app.get('/accomplice/discord', async (req: Request, res: Response) => {
 });
 
 app.post('/accomplice/discord', (req: Request, res: Response) => {
+	console.log(req.query);
+	console.log(req.headers);
 	console.log(req.body);
 	
 	const message = `
