@@ -22,7 +22,7 @@ app.post('/accomplice/discord', async (req: Request, res: Response) => {
 	Have a great day :relaxed:
 	`
 
-	fetch(process.env.DISCORD_HOOK_URL as string, {
+	await fetch(process.env.DISCORD_HOOK_URL as string, {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
 		body: JSON.stringify({
@@ -31,7 +31,7 @@ app.post('/accomplice/discord', async (req: Request, res: Response) => {
 			avatar_url: 'http://animhooks.cs.byu.edu/img/shotgriscord.png',
 		}),
 	})
-	.then(r => res.sendStatus(200));
+	res.sendStatus(200);
 });
 
 
