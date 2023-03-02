@@ -1,5 +1,6 @@
 import express, { Express, Request, Response } from 'express';
 import dotenv from 'dotenv';
+import { verifyMessage } from './util';
 
 dotenv.config();
 
@@ -14,9 +15,12 @@ app.get('/accomplice/discord', async (req: Request, res: Response) => {
 });
 
 app.post('/accomplice/discord', (req: Request, res: Response) => {
-	console.log(req.query);
-	console.log(req.headers);
 	console.log(req.body);
+
+	if (!verifyMessage(req, process.env.SECRET_TOKEN as string)) {
+		console.log('Bad request!');
+		res.sendStatus(401).send('Bad Credentials');
+	}
 	
 	const message = `
 	**A thing has happened!** :confetti_ball:
