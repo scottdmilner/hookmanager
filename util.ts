@@ -2,8 +2,8 @@ import { Request } from 'express';
 import crypto, { sign } from 'crypto';
 
 export function verifyMessage(req: Request, secretToken: string): boolean {
-    const sha1Hash = 'sha1=' + crypto.createHash('sha1')
-        .update(secretToken)
+    const sha1Hash = 'sha1=' 
+      + crypto.createHmac('sha1', secretToken)
         .update(JSON.stringify(req.body))
         .digest('hex');
     
