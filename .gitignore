@@ -1,0 +1,18 @@
+# vscode
+.vscode
+
+# nodejs
+.npm
+node_modules
+
+# environment
+.env
+
+# sourcemaps
+.map
+
+# compiled
+dist
+
+# macOS
+.DS_Store
