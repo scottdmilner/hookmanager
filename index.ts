@@ -16,7 +16,7 @@ app.get('/accomplice/discord', async (req: Request, res: Response) => {
 app.post('/accomplice/discord', async (req: Request, res: Response) => {
 	console.log(req.body);
 	
-	fetch(process.env.DISCORD_HOOK_URL, {
+	fetch(process.env.DISCORD_HOOK_URL as string, {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
 		body: JSON.stringify({
