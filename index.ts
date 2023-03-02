@@ -18,9 +18,8 @@ app.post('/accomplice/discord', (req: Request, res: Response) => {
 	
 	const message = `
 	**A thing has happened!** :confetti_ball:\n 
-	There was a \`${req.body.data.meta.type}\` on the entity \`${req.body.data.entity.id}\`!
-	Have a great day :relaxed:
-	`
+There was a \`${req.body.data.meta.type}\` on the entity \`${req.body.data.entity.id}\`!
+Have a great day :relaxed:`
 
 	fetch(process.env.DISCORD_HOOK_URL as string, {
 		method: 'POST',
@@ -36,8 +35,8 @@ app.post('/accomplice/discord', (req: Request, res: Response) => {
 
 
 app.get('/img/shotgriscord.png', (req: Request, res: Response) => {
-	res.sendFile('img/shotgriscord.png');
-})
+	res.sendFile(__dirname + 'img/shotgriscord.png');
+});
 
 app.listen(port, () => {
   console.log(`⚡️[server]: Server is running at http://localhost:${port}`);
