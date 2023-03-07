@@ -1,6 +1,7 @@
 import express, { Express, Request, Response } from 'express';
 import dotenv from 'dotenv';
 import { verifyMessage } from './util';
+import * as child from 'child_process';
 
 dotenv.config();
 
@@ -9,7 +10,7 @@ const port = process.env.PORT;
 
 app.use(express.json());
 
-app.get('/accomplice/discord', async (req: Request, res: Response) => {
+app.get('/accomplice/discord', (req: Request, res: Response) => {
     console.log('Hello there');
     res.sendStatus(200);
 });
@@ -40,6 +41,18 @@ Have a great day :relaxed:`
         if (fetchResponse.ok) res.sendStatus(200);
         else                  res.sendStatus(500);
     });
+});
+
+app.post('/dev/reload', (req: Request, res: Response) => {
+    console.log(req.body);
+
+    if (req.query.reload_token != process.env.RELOAD_TOKEN) {
+        console.log("Bad reload request");
+        res.sendStatus(401);
+        return;
+    }
+
+    child.spawn('git', ['pull'], {cwd: __dirname});
 });
 
 app.listen(port, () => {
