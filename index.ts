@@ -53,7 +53,8 @@ app.post('/dev/reload', (req: Request, res: Response) => {
     }
     console.log('reload!');
 
-    // child.spawn('git', ['pull'], {cwd: __dirname});
+    child.spawn('git', ['pull'], {cwd: __dirname});
+    res.sendStatus(200);
 });
 
 app.listen(port, () => {
