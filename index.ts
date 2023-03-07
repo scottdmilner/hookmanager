@@ -18,7 +18,7 @@ app.get('/accomplice/discord', (req: Request, res: Response) => {
 app.post('/accomplice/discord', (req: Request, res: Response) => {
     console.log(req.body);
 
-    if (!verifyMessage(req, process.env.SECRET_TOKEN as string)) {
+    if (!verifyMessage(req, 'x-sg-signature', process.env.SECRET_TOKEN as string)) {
         console.log('Bad request!');
         res.sendStatus(401);
         return;
@@ -46,13 +46,14 @@ Have a great day :relaxed:`
 app.post('/dev/reload', (req: Request, res: Response) => {
     console.log(req.body);
 
-    if (req.query.reload_token != process.env.RELOAD_TOKEN) {
+    if (!verifyMessage(req, 'x-hub-signature', process.env.RELOAD_TOKEN as string)) {
         console.log("Bad reload request");
         res.sendStatus(401);
         return;
     }
+    console.log('reload!');
 
-    child.spawn('git', ['pull'], {cwd: __dirname});
+    // child.spawn('git', ['pull'], {cwd: __dirname});
 });
 
 app.listen(port, () => {
