@@ -109,7 +109,6 @@
     "toidentifier": "^1.0.1",
     "touch": "^3.1.0",
     "tree-kill": "^1.2.2",
-    "tsc": "^2.0.4",
     "tslib": "^2.5.0",
     "type-is": "^1.6.18",
     "undefsafe": "^2.0.5",
