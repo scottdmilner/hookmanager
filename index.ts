@@ -33,7 +33,7 @@ Have a great day :relaxed:`
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            username: 'ShBotGrid',
+            username: 'ShbotGrid',
             content: message,
         }),
     })
@@ -45,7 +45,7 @@ Have a great day :relaxed:`
 
 app.post('/dev/reload', (req: Request, res: Response) => {
     console.log(req.body);
-    // test commit
+    
     if (!verifyMessage(req, 'x-hub-signature', process.env.RELOAD_TOKEN as string)) {
         console.log("Bad reload request");
         res.sendStatus(401);
