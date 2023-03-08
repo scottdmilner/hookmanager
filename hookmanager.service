@@ -3,9 +3,6 @@ Description=Hook manager for Accomplice
 
 [Service]
 Type=simple
-#ExecStartPre=/usr/bin/git pull
-#ExecStartPre=/usr/bin/npm run build
-#ExecStart=/usr/bin/npm start
 ExecStart=/usr/bin/concurrently 'npx tsc --watch' 'nodemon -q dist/index.js'
 Restart=always
 User=hookmanager
