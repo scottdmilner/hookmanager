@@ -38,7 +38,7 @@ app.post('/accomplice/discord', (req: Request, res: Response) => {
     dao.getEntity(metadata.entity_type, metadata.entity_id)
     .then(entity => 
 `**A thing has happened!** :confetti_ball:
-There was a \`${metadata.type}\` on the entity \`${entity.attributes.cached_display_name}\`!
+There was a \`${metadata.type}\` on the entity **${entity.attributes.cached_display_name}**
 Have a great day :relaxed:`
     )
     .then(message =>
